@@ -1,0 +1,20 @@
+.layout {
+	display: flex;
+	background: #f7f7f7;
+}
+
+.main {
+	width: 100vw;
+	height: 100vh;
+	margin-top: 40px;
+	display: flex;
+	justify-content: center;
+
+	&_auth {
+		width: 100vw;
+		height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}

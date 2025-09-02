@@ -1,0 +1,36 @@
+{
+	"compilerOptions": {
+		"target": "ES2020", 
+		"useDefineForClassFields": true, 
+
+		"module": "ESNext", 
+		"moduleResolution": "bundler", 
+		"allowImportingTsExtensions": true, 
+		"resolveJsonModule": true, 
+		"isolatedModules": true, 
+
+		/* Строгость типов */
+		"strict": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+
+		/* JSX */
+		"jsx": "react-jsx", 
+
+		/* Интероперабельность */
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"forceConsistentCasingInFileNames": true,
+
+		"noEmit": true,
+		"declaration": false, 
+
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["src/*"],
+			"@components/*": ["src/components/*"]
+		}
+	},
+	"include": ["src/**/*", "**/*.d.ts"],
+	"exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.test.tsx"]
+}

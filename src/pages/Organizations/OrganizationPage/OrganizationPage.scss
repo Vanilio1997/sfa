@@ -1,0 +1,29 @@
+.organization {
+	&-page {
+		max-width: 1200px;
+		width: 640px;
+		margin: 0 auto;
+		&__header {
+			position: relative;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 32px;
+		}
+
+		&__actions {
+			display: flex;
+			gap: 4px;
+		}
+		&__content {
+			display: flex;
+			flex-direction: column;
+			gap: 16px;
+		}
+		&__button-back {
+			position: absolute;
+			left: -64px;
+			top: 10px;
+		}
+	}
+}

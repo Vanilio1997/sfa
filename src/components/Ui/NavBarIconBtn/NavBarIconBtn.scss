@@ -1,0 +1,23 @@
+.navBar--btn {
+    display: inline-flex;
+	border-radius: 8px;
+	background: transparent;
+	color: #fff;
+	font-size: 11px;
+	border: none;
+	cursor: pointer;
+    padding: 8px;
+
+	&:hover {
+		background: #434343;
+	}
+
+	&:active {
+		background: #626262;
+	}
+
+	&:disabled {
+		cursor: not-allowed;
+		opacity: 0.5;
+	}
+}

@@ -1,0 +1,42 @@
+.card-details {
+	&__header {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+	}
+	&__content {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		width: 100%;
+	}
+	&__value {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+	}
+
+	&__section {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		height: 32px;
+
+		&--large {
+			height: 40px;
+		}
+	}
+	&__actions {
+		display: flex;
+		gap: 12px;
+		align-items: center;
+	}
+	&__agreement-content {
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+		&--large {
+			gap: 12px;
+		}
+	}
+}

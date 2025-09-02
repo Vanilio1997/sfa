@@ -1,0 +1,166 @@
+.select {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	position: relative;
+	outline: none;
+
+	&--full-width {
+		width: 100%;
+	}
+
+	&--focused {
+		.select__trigger {
+			border-color: #35cdfd;
+			box-shadow: 0 0 0 3px rgba(53, 205, 253, 0.1);
+		}
+	}
+
+	&--open {
+		.select__trigger {
+			border-color: #35cdfd;
+
+			.select__arrow {
+				transform: rotate(180deg);
+			}
+		}
+	}
+
+	&:focus {
+		outline: none;
+	}
+
+	&:focus-visible {
+		.select__trigger {
+			outline: 2px solid #35cdfd;
+			outline-offset: 2px;
+		}
+	}
+
+	&-form__field {
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+	}
+
+	&__label {
+		font-weight: 500;
+		color: #2d3748;
+		font-size: 0.9rem;
+		line-height: 1.4;
+		margin-bottom: 4px;
+	}
+
+	&__trigger {
+		border-radius: 8px;
+		transition: all 0.2s ease;
+		background: white;
+		padding: 10px 12px;
+		border: 1px solid #ccc;
+		cursor: pointer;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		min-height: 40px;
+
+		&:hover {
+			border-color: #808080;
+		}
+
+		&:focus {
+			outline: none;
+		}
+
+		&--error {
+			border-color: #e53e3e;
+
+			&:focus {
+				border-color: #e53e3e;
+				box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.1);
+			}
+		}
+	}
+
+	&__value {
+		font-size: 14px;
+		color: #333;
+		flex: 1;
+		text-align: left;
+	}
+
+	&__arrow {
+		transition: transform 0.2s ease;
+		display: flex;
+		rotate: 90deg;
+		align-items: center;
+		justify-content: center;
+
+		svg {
+			width: 16px;
+			height: 16px;
+		}
+	}
+
+	&__options {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		right: 0;
+		background: white;
+		border: 1px solid #ccc;
+		border-radius: 8px;
+		margin-top: 4px;
+		max-height: 200px;
+		overflow-y: auto;
+		z-index: 1000;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+		animation: fadeIn 0.2s ease;
+	}
+
+	&__option {
+		padding: 10px 12px;
+		cursor: pointer;
+		font-size: 14px;
+		color: #333;
+		transition: all 0.2s ease;
+		display: flex;
+		align-items: center;
+		gap: 8px;
+
+		&:hover {
+			background-color: #f5f5f5;
+		}
+
+		&:focus {
+			outline: none;
+			background-color: #f0f0f0;
+		}
+
+		&:focus-visible {
+			outline: 2px solid #35cdfd;
+			outline-offset: -2px;
+		}
+
+		&--selected {
+			background-color: #f5f5f5;
+		}
+	}
+
+	&__error {
+		color: #e53e3e;
+		font-size: 0.8rem;
+		line-height: 1.4;
+		margin-top: 0.25rem;
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(-8px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
