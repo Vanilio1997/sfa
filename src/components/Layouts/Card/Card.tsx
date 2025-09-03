@@ -2,11 +2,12 @@ import { ReactNode } from 'react'
 import './Card.scss'
 
 interface ICard {
-	children: ReactNode
+	children: ReactNode,
+	className?: string,
 }
 
-const Card = ({ children }: ICard) => {
-	return <div className='card'>{children}</div>
+const Card = ({ children, className = '' }: ICard) => {
+	return <div className={`card ${className}`}>{children}</div>
 }
 
 export default Card

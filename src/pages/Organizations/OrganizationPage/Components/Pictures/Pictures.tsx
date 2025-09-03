@@ -29,7 +29,7 @@ const Pictures = observer(() => {
 					</Typography>
 					<UploadButton
 						onFileSelect={handleFileSelect}
-						icon={<AddIcon />}
+						icon={<AddIcon height={16} width={16} />}
 						text='Add'
 						accept='image/jpeg'
 					/>

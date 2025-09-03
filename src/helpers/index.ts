@@ -31,3 +31,8 @@ export function getFirstLetters(str: string): string {
 		.map((word) => word.charAt(0))
 		.join('')
 }
+
+
+export function formatPhoneNumber(phoneNumber:string):string {
+    return `+1 ${phoneNumber.substring(1, 4)} ${phoneNumber.substring(4, 7)} ${phoneNumber.substring(7)}`;
+}

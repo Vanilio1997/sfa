@@ -59,6 +59,8 @@ const OrganizationPage = observer(() => {
 						Icon={EditIcon}
 						variant='bright'
 						onClick={handleOpenEditModal}
+						iconHeight={20}
+						iconWidth={20}
 					/>
 					<Button
 						size='mini'
@@ -66,6 +68,8 @@ const OrganizationPage = observer(() => {
 						variant='bright'
 						style={{ stroke: '#D72323' }}
 						onClick={handleOpenDeleteModal}
+						iconHeight={20}
+						iconWidth={20}
 					/>
 				</div>
 				<Button
@@ -74,6 +78,8 @@ const OrganizationPage = observer(() => {
 					variant='bright'
 					onClick={backToOrganizationsPage}
 					className='organization-page__button-back'
+					iconHeight={20}
+					iconWidth={20}
 				/>
 			</div>
 			<div className='organization-page__content'>

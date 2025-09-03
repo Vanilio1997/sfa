@@ -9,6 +9,8 @@ interface IButtonProps {
 	iconPosition?: 'left' | 'right'
 	className?: string
 	fullWidth?: boolean
+	iconWidth?: number
+	iconHeight?: number
 	children?: React.ReactNode
 }
 
@@ -19,11 +21,14 @@ const Button = (props: ButtonProps) => {
 	const {
 		label,
 		size,
+		iconWidth = 16,
+		iconHeight = 16,
 		variant,
 		Icon,
 		iconPosition = 'left',
 		className = '',
 		fullWidth = false,
+
 		children,
 		...otherProps
 	} = props
@@ -37,10 +42,14 @@ const Button = (props: ButtonProps) => {
 			${className} `}
 			{...otherProps}
 		>
-			{Icon && iconPosition === 'left' && <Icon />}
+			{Icon && iconPosition === 'left' && (
+				<Icon width={iconWidth} height={iconHeight} />
+			)}
 			{label && <span className='btn--label'>{label}</span>}
 			{children}
-			{Icon && iconPosition === 'right' && <Icon />}
+			{Icon && iconPosition === 'right' && (
+				<Icon width={iconWidth} height={iconHeight} />
+			)}
 		</button>
 	)
 }

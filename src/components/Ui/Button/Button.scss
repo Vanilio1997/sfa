@@ -3,7 +3,6 @@
 	border-radius: 8px;
 	padding: 10px 12px;
 	font-weight: 600;
-	font-style: SemiBold;
 	font-size: 13px;
 	line-height: 20px;
 	letter-spacing: 0.48px;
@@ -16,10 +15,20 @@
 	cursor: pointer;
 	border: none;
 
-	font-size: 11px;
 
 	&--label {
+		font-weight: 600;
+		font-size: 13px;
+		letter-spacing: 0.48px;
+		text-align: center;
+	}
+
+	&--normal &--label {
 		width: 100%;
+	}
+
+	&--mini &--label {
+		font-size: 11px;
 	}
 
 	&-fullWidth {
@@ -47,6 +56,7 @@
 		background: #fff;
 		border: 1px solid var(--black-black-20, #00000033);
 		stroke: #3b3b3b;
+		color: #3b3b3b;
 
 		&:hover:not(:disabled) {
 			color: #6d4aaf;

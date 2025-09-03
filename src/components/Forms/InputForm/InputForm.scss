@@ -14,10 +14,12 @@
 	}
 
 	&__label {
-		font-weight: 500;
-		color: #2d3748;
-		font-size: 0.9rem;
-		line-height: 1.4;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 24px;
+		letter-spacing: 0.3px;
+		vertical-align: middle;
+		color: #333333;
 	}
 
 	&__field {
@@ -29,8 +31,10 @@
 
 		font-weight: 400;
 		font-size: 14px;
+		line-height: 24px;
 		letter-spacing: 0.3px;
 		vertical-align: middle;
+		color: #333333;
 
 		&:hover {
 			border-color: #808080;
@@ -43,7 +47,6 @@
 
 		&:focus-visible {
 			border-color: #35cdfd;
-			outline: none;
 		}
 
 		&:focus-within {

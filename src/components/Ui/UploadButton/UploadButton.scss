@@ -12,19 +12,27 @@
 	border: 1px solid var(--black-black-20, #00000033);
 
 	&:hover {
-		color: #6d4aaf;
-
 		border-color: var(--black-black-40, #00000066);
 
 		.upload-button__icon {
 			stroke: #6d4aaf;
 		}
+
+		.upload-button__text {
+			color: #6d4aaf;
+		}
 	}
 
 	&:active {
-		color: #6243e6;
-		stroke: #6243e6;
 		border-color: #6243e6;
+		
+		.upload-button__icon {
+			stroke: #6243e6;
+		}
+
+		.upload-button__text {
+			color: #6243e6;
+		}
 	}
 
 	&__input {
@@ -51,8 +59,13 @@
 	&__text {
 		font-size: 14px;
 		font-weight: 500;
-		color: var(--color-text-secondary, #666);
+		color: #3b3b3b;
 		transition: color 0.3s ease;
+		font-weight: 600;
+		font-size: 11px;
+		line-height: 20px;
+		letter-spacing: 0.48px;
+		text-align: center;
+		vertical-align: middle;
 	}
-
 }

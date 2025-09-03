@@ -125,13 +125,13 @@ const CompanyForm = observer(() => {
 									</>
 								) : (
 									<>
-										<Typography variant='accent' color='#33333'>
+										<Typography variant='accent' color='#333333'>
 											{company.company?.contract.no}
 										</Typography>
 										<Typography variant='accent' color='#B3b3b3'>
 											/
 										</Typography>
-										<Typography variant='accent' color='#33333'>
+										<Typography variant='accent' color='#333333'>
 											{company.company &&
 												formatDate(company.company.contract.issue_date)}
 										</Typography>{' '}
@@ -165,7 +165,7 @@ const CompanyForm = observer(() => {
 									)}
 								/>
 							) : (
-								<Typography variant='accent' color='#33333'>
+								<Typography variant='accent' color='#333333'>
 									{company.company?.businessEntity}
 								</Typography>
 							)}

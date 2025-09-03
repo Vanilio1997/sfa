@@ -24,7 +24,7 @@ const DeleteCompanyModal = ({ handleCloseModal, isModalOpen }: IModalProps) => {
 			isOpen={isModalOpen}
 			onClose={handleCloseModal}
 			isModalWithForm={false}
-			text='Are you sure you want to remove this Organozation?'
+			text='Are you sure you want to remove this Organization?'
 			headerText='Remove the Organization?'
 			abortButtonText='No'
 			confirmButtonText='Yes, remove'

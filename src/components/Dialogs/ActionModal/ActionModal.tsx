@@ -3,6 +3,7 @@ import Portal from '../Portal'
 import { Card } from '@/components/Layouts'
 import './ActionModal.scss'
 import { Button, Typography } from '@/components/Ui'
+import { UseFormReset, FieldValues } from 'react-hook-form'
 
 interface IModalProps {
 	isOpen: boolean
@@ -19,19 +20,26 @@ interface IActionModal extends IModalProps {
 	text: string
 }
 
-interface IFormModal extends IModalProps {
+interface IFormModal<T extends FieldValues> extends IModalProps {
 	children: React.ReactNode
 	isModalWithForm: true
+	reset: UseFormReset<T>
 }
 
-type ModalProps = IActionModal | IFormModal
+type ModalProps<T extends FieldValues> = IActionModal | IFormModal<T>
 
-const ActionModal = (props: ModalProps) => {
+const ActionModal = <T extends FieldValues>(props: ModalProps<T>) => {
 	const { headerText, isModalWithForm, isOpen, onClose } = props
+	function closeDialog() {
+		if (isModalWithForm) {
+			props.reset()
+		}
+		onClose()
+	}
 	useEffect(() => {
 		const handleEscape = (e: KeyboardEvent) => {
 			if (e.key === 'Escape') {
-				onClose()
+				closeDialog()
 			}
 		}
 
@@ -45,18 +53,20 @@ const ActionModal = (props: ModalProps) => {
 
 	const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
 		if (e.target === e.currentTarget) {
-			onClose()
+			closeDialog()
 		}
 	}
 
 	return (
 		<Portal isOpen={isOpen}>
 			<div className='action-modal' onClick={handleOverlayClick}>
-				<Card>
-					<div>
-						<Typography variant='accent' weight='bold' color='#333333'>
-							{headerText}
-						</Typography>
+				<Card className='action-modal__card'>
+					<div className='action-modal__content'>
+						<div className='action-modal__header'>
+							<Typography variant='accent' weight='bold' color='#333333'>
+								{headerText}
+							</Typography>
+						</div>
 						{isModalWithForm ? (
 							<>{props.children} </>
 						) : (
@@ -74,16 +84,15 @@ const ActionModal = (props: ModalProps) => {
 										size='normal'
 										variant='outline'
 										label={props.abortButtonText}
-										onClick={props.onClose}
-                                        fullWidth
+										onClick={closeDialog}
+										fullWidth
 									/>
 									<Button
 										size='normal'
 										variant='filled'
 										label={props.confirmButtonText}
 										onClick={props.confirmAction}
-                                        fullWidth
-                                    
+										fullWidth
 									/>
 								</div>
 							</>

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 
 import '../../styles/InfoCard.scss'
 
-import { InputForm } from '@/components/Forms'
+import { InputForm, PhoneInputForm } from '@/components/Forms'
 import { Card } from '@/components/Layouts'
 import { Loader, Typography } from '@/components/Ui'
 
@@ -18,6 +18,8 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { observer } from 'mobx-react-lite'
 import { useForm } from 'react-hook-form'
 
+import { formatPhoneNumber } from '@/helpers'
+
 const ContactForm = observer(() => {
 	const [isEditing, setIsEditing] = useState(false)
 	const { contact, company } = useStore()
@@ -27,6 +29,7 @@ const ContactForm = observer(() => {
 		handleSubmit,
 		formState: { errors },
 		reset,
+		watch,
 	} = useForm<ContactData>({
 		resolver: zodResolver(contactSchema),
 		mode: 'onChange',
@@ -52,8 +55,9 @@ const ContactForm = observer(() => {
 
 	const onSubmit = async (data: ContactData) => {
 		if (company.company?.contactId) {
-			const { email, phone, person } = data
+			const { email, person } = data
 			const [firstname, lastname] = person.split(' ')
+			const phone = data.phone.replace('+', '')
 			await contact.updateContact(company.company?.contactId, {
 				email,
 				phone,
@@ -127,7 +131,7 @@ const ContactForm = observer(() => {
 									</>
 								) : (
 									<>
-										<Typography variant='accent' color='#33333'>
+										<Typography variant='accent' color='#333333'>
 											{contact.contact?.firstname} {contact.contact?.lastname}
 										</Typography>
 									</>
@@ -141,13 +145,14 @@ const ContactForm = observer(() => {
 						>
 							<DetailsLabel text='Phone number' />
 							{isEditing ? (
-								<InputForm
-									{...register('phone')}
+								<PhoneInputForm
+									register={register('phone')}
 									error={errors.phone?.message}
+									value={watch('phone')}
 								/>
 							) : (
-								<Typography variant='accent' color='#33333'>
-									{contact.contact.phone}
+								<Typography variant='accent' color='#333333'>
+									{formatPhoneNumber(contact.contact.phone)}
 								</Typography>
 							)}
 						</div>
@@ -164,7 +169,7 @@ const ContactForm = observer(() => {
 									error={errors.email?.message}
 								/>
 							) : (
-								<Typography variant='accent' color='#33333'>
+								<Typography variant='accent' color='#333333'>
 									{contact.contact.email}
 								</Typography>
 							)}

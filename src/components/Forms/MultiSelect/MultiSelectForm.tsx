@@ -148,7 +148,9 @@ const MultiSelectForm = <T extends string>({
 					{options.map((option) => (
 						<label
 							key={option}
-							className='select__option'
+							className={`select__option ${
+									value.includes(option) ? 'select__option--selected' : ''
+								}`}
 							tabIndex={0}
 							onKeyDown={(e) => handleOptionKeyDown(e, option)}
 						>
@@ -159,7 +161,13 @@ const MultiSelectForm = <T extends string>({
 								className='select__checkbox'
 								tabIndex={-1}
 							/>
-							<span className='select__option-text'>{option}</span>
+							<span
+								className={`select__option-text ${
+									value.includes(option) ? 'select__option-text--selected' : ''
+								}`}
+							>
+								{option}
+							</span>
 						</label>
 					))}
 				</div>

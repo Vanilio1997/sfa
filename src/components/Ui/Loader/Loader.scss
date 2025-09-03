@@ -16,8 +16,9 @@
 	}
 
 	&__spinner {
-		border: 3px solid #f3f3f3; 
-		border-top: 3px solid; 
+		border: 3px solid #f3f3f3;
+		border-top: 3px solid;
+		border-radius: 50%;
 		animation: spin 1s linear infinite;
 
 		&--small {

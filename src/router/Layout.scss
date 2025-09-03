@@ -1,14 +1,16 @@
 .layout {
 	display: flex;
-	background: #f7f7f7;
 }
 
 .main {
 	width: 100vw;
 	height: 100vh;
-	margin-top: 40px;
 	display: flex;
 	justify-content: center;
+
+	&__wrapper {
+		margin-top: 40px;
+	}
 
 	&_auth {
 		width: 100vw;
